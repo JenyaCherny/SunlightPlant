@@ -6,10 +6,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 var app = builder.Build();
 
 app.MapGet("/plants", async (PlantDb db) =>
-    await db.Plants.ToListAsync());
-
-// app.MapGet("/plants/complete", async (PlantDb db) =>
-//     await db.Plants.Where(t => t.IsComplete).ToListAsync());
+    await db.Plants.ToListAsync())
 
 app.MapGet("/plants/{id}", async (int id, PlantDb db) =>
     await db.Plants.FindAsync(id)
